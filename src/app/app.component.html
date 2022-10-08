@@ -1,4 +1,27 @@
-<app-encabezado></app-encabezado>
-<h1>Hola, este es mi componente raiz</h1>
-<p>Este es un parrafo en app component</p>
-<h3>H3 - App Component</h3>
+<ion-app>
+    <ion-header>
+      <ion-toolbar>
+        <ion-title>Header</ion-title>
+      </ion-toolbar>
+      
+    </ion-header>
+  
+    <ion-content class="ion-padding">
+      <h1>Main Content</h1>
+      
+      <app-articulos></app-articulos>
+    </ion-content>
+
+    <ion-content class="ion-padding">
+      <app-articulos></app-articulos>
+      <router-outlet></router-outlet>
+    </ion-content>
+
+    <ion-footer>
+        <ion-toolbar>
+          <ion-title>Footer</ion-title>
+        </ion-toolbar>
+      </ion-footer>
+      
+  </ion-app>
+
