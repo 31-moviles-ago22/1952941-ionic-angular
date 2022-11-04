@@ -1,27 +1,75 @@
 <ion-app>
-    <ion-header>
+  <!--<ion-header>
       <ion-toolbar>
         <ion-title>Header</ion-title>
-      </ion-toolbar>
+      </ion-toolbar></ion-header>--> 
       
-    </ion-header>
+    
+
+    <ion-menu contentId="main-content" type="reveal"> <!--Contenedor del menu-->
+      <ion-header><!--Encabezado del menu-->
+          <ion-toolbar>
+              <ion-title>
+                  Menu
+              </ion-title>
+          </ion-toolbar>
+      </ion-header>
+
+
+      <ion-content class="ion-padding"> <!--Contenido del Menu-->
+        <ion-list>
+          <ion-item> <a routerLink="/articulos">Articulos</a></ion-item>
+          <ion-item><a href="">Electrónicps</a></ion-item>
+          <ion-item><a href="">Deportes</a></ion-item>
+          <ion-item><a href="">Halloween</a></ion-item>
+          <ion-item><a href="">Ropa</a></ion-item>
+          <ion-item><a href="">Videojuegos</a></ion-item>
+          <ion-item><a href="">
+              <ion-icon name="log-in"></ion-icon>
+              <ion-icon name="log-out"></ion-icon>
+              Inicio de Sesión
+          </a></ion-item>
+          <ion-item>
+              <a href="">Mi Cuenta</a>
+          </ion-item>
+        </ion-list>
+      </ion-content>
+  </ion-menu>
+
   
-    <ion-content class="ion-padding">
-      <h1>Main Content</h1>
-      
-      <app-articulos></app-articulos>
-    </ion-content>
+    
 
-    <ion-content class="ion-padding">
-      <app-articulos></app-articulos>
-      <router-outlet></router-outlet>
-    </ion-content>
+  <div class="ion-page" id="main-content">
+    <ion-header>
+      <!--<ion-toolbar>
+          <ion-buttons slot="start">
+            <ion-menu-button></ion-menu-button>
+          </ion-buttons>
+          <ion-title> 
+            Mi primera tienda en linea
+             </ion-title>
+            <div id="carrito" class="derecha">
+           
+            <app-carrito></app-carrito>
+          </div>
+          
+          
+          
+        </ion-toolbar>-->
+        <app-encabezado></app-encabezado>
+       
+      </ion-header>
 
-    <ion-footer>
+      <ion-content class="ion-padding">
+        <router-outlet></router-outlet>
+       </ion-content>
+   </div>
+<!--<ion-footer>
         <ion-toolbar>
           <ion-title>Footer</ion-title>
         </ion-toolbar>
-      </ion-footer>
+      </ion-footer>-->
+     
       
   </ion-app>
 

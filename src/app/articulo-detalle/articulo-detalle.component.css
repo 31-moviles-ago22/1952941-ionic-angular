@@ -2,6 +2,10 @@ p {
     font-weight: 700;
     color: black;
 }
+p.strong {
+    font-weight: 700;
+    color: black;
+}
 p.review {
     font-weight: 100;
 }

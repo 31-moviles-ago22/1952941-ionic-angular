@@ -135,4 +135,10 @@ export class ArticulosComponent implements OnInit {
     },
   ];
 
+  carro: number = 0;
+
+  agregarCarrito(){
+    this.carro++;
+  }
+
 }

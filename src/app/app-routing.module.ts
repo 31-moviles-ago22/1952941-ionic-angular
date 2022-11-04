@@ -3,8 +3,13 @@ import { RouterModule, Routes } from '@angular/router';
 import { ArticulosComponent } from './articulos/articulos.component';
 import { InicioComponent } from './inicio/inicio.component';
 import { ArticuloDetalleComponent } from './articulo-detalle/articulo-detalle.component';
+import { EncabezadoComponent } from './encabezado/encabezado.component';
 
 const routes: Routes = [
+  {
+    path: 'encabezado',
+    component: EncabezadoComponent
+  },
   {
     path: 'articulos', 
     component: ArticulosComponent

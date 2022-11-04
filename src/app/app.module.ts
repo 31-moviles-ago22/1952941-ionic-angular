@@ -8,15 +8,18 @@ import { IonicModule } from '@ionic/angular';
 import { ArticulosComponent } from './articulos/articulos.component';
 import { InicioComponent } from './inicio/inicio.component';
 import { ArticuloDetalleComponent } from './articulo-detalle/articulo-detalle.component';
+import { CarritoComponent } from './carrito/carrito.component';
+import {FormsModule} from '@angular/forms'
 
 @NgModule({
   declarations: [
     AppComponent,
     EncabezadoComponent,                                 
-    ArticulosComponent, InicioComponent, ArticuloDetalleComponent
+    ArticulosComponent, InicioComponent, ArticuloDetalleComponent, CarritoComponent
   ],
   imports: [
     BrowserModule,
+    FormsModule,
     AppRoutingModule,
     IonicModule.forRoot(),
   ],

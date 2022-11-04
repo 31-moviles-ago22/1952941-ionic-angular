@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output } from '@angular/core';
 
 @Component({
   selector: 'app-encabezado',
@@ -12,4 +12,16 @@ export class EncabezadoComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  carro: number = 0;
+  cantidad: number=1;
+  @Output() carroCopia: number = 0
+
+  agregarCarrito(){
+    //this.carro++;
+    let total=this.carro+this.cantidad;
+    this.carro=total;
+    
+    
+  }
+  
 }
