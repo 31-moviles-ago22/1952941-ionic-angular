@@ -1,4 +1,9 @@
-import { Component, OnInit, CUSTOM_ELEMENTS_SCHEMA} from '@angular/core';
+import { Component, EventEmitter, OnInit, Output, CUSTOM_ELEMENTS_SCHEMA} from '@angular/core';
+import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/compat/firestore';
+import { AgregarCarritoService } from '../agregar-carrito.service';
+import { Observable, of } from 'rxjs'
+import { Articulo } from '../articulo.model';
+import { AngularFireStorage } from '@angular/fire/compat/storage';
 
 @Component({
   selector: 'app-articulos',
@@ -7,9 +12,39 @@ import { Component, OnInit, CUSTOM_ELEMENTS_SCHEMA} from '@angular/core';
 })
 export class ArticulosComponent implements OnInit {
 
-  constructor() { }
+  private coleccionFirebase: AngularFirestoreCollection<Articulo>;
+  articulosFirebase: Observable<Articulo[]>;
+  articuloDoc: any;
+
+  constructor(
+    private carritoService : AgregarCarritoService,
+    private aFirestore: AngularFirestore,
+    private aFireStorage: AngularFireStorage
+  ) { 
+    this.coleccionFirebase = this.aFirestore.collection<Articulo>('articulos');
+    this.articulosFirebase = this.coleccionFirebase.valueChanges({idField: 'id'});
+    this.articuloDoc = this.aFirestore.doc<Articulo>('/articulos/KyPraPRLoHbek3pEt0kk');
+
+    const ref = this.aFireStorage.storage;
+  }
+
+  articulosColeccionFb: Articulo[] = [];
 
   ngOnInit(): void {
+
+    /*console.log(this.coleccionFirebase.valueChanges({idField: 'id'}).subscribe(res => {
+      this.articulosColeccionFb = res;
+    }));
+    
+    this.articulosFirebase.subscribe(res => {
+      
+    })*/
+
+  }
+
+  ngOnDestroy() {
+    this.articulosColeccionFb = [];
+   
   }
 
   articulos: any = [
@@ -137,8 +172,14 @@ export class ArticulosComponent implements OnInit {
 
   carro: number = 0;
 
-  agregarCarrito(){
+  @Output() agregarAcarrito =  new EventEmitter()
+
+  agregarCarrito(articulo:any){
     this.carro++;
+
+    this.agregarAcarrito.emit(this.carro);
+
+    this.carritoService.testService();
   }
 
 }

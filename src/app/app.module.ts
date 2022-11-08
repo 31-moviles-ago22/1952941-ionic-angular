@@ -11,6 +11,12 @@ import { ArticuloDetalleComponent } from './articulo-detalle/articulo-detalle.co
 import { CarritoComponent } from './carrito/carrito.component';
 import {FormsModule} from '@angular/forms'
 
+import { initializeApp } from "firebase/app";
+import { AngularFireModule } from '@angular/fire/compat';
+import { environment } from 'src/environments/environment';
+
+const app = initializeApp(environment.firebaseConfig);
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -18,6 +24,7 @@ import {FormsModule} from '@angular/forms'
     ArticulosComponent, InicioComponent, ArticuloDetalleComponent, CarritoComponent
   ],
   imports: [
+    AngularFireModule.initializeApp(environment.firebase),
     BrowserModule,
     FormsModule,
     AppRoutingModule,

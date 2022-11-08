@@ -2,3 +2,13 @@ ion-col{
     display: flex;
     padding: 10px;
 }
+
+ion-button {
+    --background: #ef476f;
+    --background-hover: #9e0059;
+    width: 100%;
+}
+
+ion-col p{
+    font-weight: bold;
+}
