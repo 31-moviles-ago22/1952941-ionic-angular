@@ -1,9 +1,16 @@
-import { Component, EventEmitter, OnInit, Output, CUSTOM_ELEMENTS_SCHEMA} from '@angular/core';
+import { Component, EventEmitter, OnInit,Output, CUSTOM_ELEMENTS_SCHEMA, Input} from '@angular/core';
 import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/compat/firestore';
 import { AgregarCarritoService } from '../agregar-carrito.service';
 import { Observable, of } from 'rxjs'
 import { Articulo } from '../articulo.model';
 import { AngularFireStorage } from '@angular/fire/compat/storage';
+
+/*export interface Articulos{
+  id: number;
+  nombre: string;
+  precio: number;
+  imagen: string;
+}*/
 
 @Component({
   selector: 'app-articulos',
@@ -14,7 +21,7 @@ export class ArticulosComponent implements OnInit {
 
   private coleccionFirebase: AngularFirestoreCollection<Articulo>;
   articulosFirebase: Observable<Articulo[]>;
-  articuloDoc: any;
+  /*articuloDoc: any;*/
 
   constructor(
     private carritoService : AgregarCarritoService,
@@ -23,7 +30,7 @@ export class ArticulosComponent implements OnInit {
   ) { 
     this.coleccionFirebase = this.aFirestore.collection<Articulo>('articulos');
     this.articulosFirebase = this.coleccionFirebase.valueChanges({idField: 'id'});
-    this.articuloDoc = this.aFirestore.doc<Articulo>('/articulos/KyPraPRLoHbek3pEt0kk');
+    /*this.articuloDoc = this.aFirestore.doc<Articulo>('/articulos/KyPraPRLoHbek3pEt0kk');*/
 
     const ref = this.aFireStorage.storage;
   }
@@ -47,6 +54,40 @@ export class ArticulosComponent implements OnInit {
    
   }
 
+  cargarFotos(){
+
+  }
+
+  porcentaje$ : Observable<number> | undefined;
+  progress : number | undefined;
+  subirFoto(event: any){
+    //Sube foto del input de File
+    const archivo: File = event.target.files[0];
+    console.log(archivo.name);
+
+    const pathArchivo = `${archivo.name}` // ${this.articulo} // necesitamos un folder por articulo
+
+
+    const task = this.aFireStorage.upload(pathArchivo, archivo);
+
+     task.percentageChanges().subscribe(res => {
+      this.progress = res;
+     });
+
+    //this.progress = porcentaje$;
+
+   /*  setInterval(() => {
+      this.progress += 0.01;
+      if (this.progress > 1) {
+        setTimeout(() => {
+          this.progress = 0;
+        }, 1000);
+      }
+    }, 50); */
+
+    task.snapshotChanges().subscribe();
+  }
+/*
   articulos: any = [
     {
       id: 1,
@@ -168,17 +209,24 @@ export class ArticulosComponent implements OnInit {
       imagen: 'assets/imagenes/art20.jpg',
       precio: 500
     },
-  ];
+  ];*/
 
-  carro: number = 0;
 
+
+
+
+
+  carro: number = 3;
+
+  @Input() articulo: any;
   @Output() agregarAcarrito =  new EventEmitter()
-
+  @Output() carrocantidad=new EventEmitter()
   agregarCarrito(articulo:any){
     this.carro++;
 
-    this.agregarAcarrito.emit(this.carro);
-
+    this.agregarAcarrito.emit(articulo);
+    this.carrocantidad.emit(this.carro);
+    
     this.carritoService.testService();
   }
 

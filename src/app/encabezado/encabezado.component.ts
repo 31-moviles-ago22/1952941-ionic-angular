@@ -14,7 +14,8 @@ export class EncabezadoComponent implements OnInit {
 
   carro: number = 0;
   cantidad: number=1;
-  @Output() carroCopia: number = 0
+  @Output() carroCopia: number = 0;
+  
 
   agregarCarrito(){
     //this.carro++;

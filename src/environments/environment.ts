@@ -4,7 +4,8 @@
 
 
 export const environment = {
-  production: false,
+  production: true,
+  useEmulators:false,
   firebaseConfig:{
     apiKey: "AIzaSyB3-n2dhydxsw_T24TDUBBLFUUEiRjjmx8",
     authDomain: "appsmoviles-b5272.firebaseapp.com",

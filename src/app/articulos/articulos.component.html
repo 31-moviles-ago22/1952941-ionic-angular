@@ -2,28 +2,31 @@
     <ion-row>
         <ion-col>
             <app-carrito [carrito]="carro"></app-carrito>
-        </ion-col>
+        </ion-col><!--[carrito]="carro"-->
     </ion-row>
 
     <!--articulos desde la base de firebase-->
+ <!--
     <div *ngFor="let articuloFirebase of articulosFirebase | async ">
         {{articuloFirebase.nombre}} <br>
 
         {{articuloFirebase.precio}} <br>
     </div>
+ -->   
 
 
     <!--articulos locales-->
     <ion-row>
         
-        <ion-col size="12" size-md="3" *ngFor="let articulo of articulosColeccionFb">
+        <ion-col size="12" size-md="3" *ngFor="let articulo of articulosFirebase | async">
             <ion-card>
             <ion-card-header>
                 <p>{{articulo.nombre}}</p>
             </ion-card-header>
            <ion-card-content>
             <a [routerLink]="['/detalle', articulo.id]">
-                <img src="assets/imagenes/art1.jpg" alt="">
+            <!--<img src="assets/imagenes/art1.jpg" alt="">-->    
+            <ion-img [src]="articulo.imagen | getDownloadURL" alt="{{articulo.nombre}}"></ion-img>
             </a>
             <p class="precio">${{articulo.precio}}</p>
             <ion-button (click)="agregarCarrito(articulo)">Agregar al Carrito</ion-button>

@@ -18,7 +18,7 @@
 
       <ion-content class="ion-padding"> <!--Contenido del Menu-->
         <ion-list>
-          <ion-item> <a routerLink="/articulos">Articulos</a></ion-item>
+          <ion-item> <a [routerLink]="['/articulos']">Articulos</a></ion-item>
           <ion-item><a href="">Electrónicps</a></ion-item>
           <ion-item><a href="">Deportes</a></ion-item>
           <ion-item><a href="">Halloween</a></ion-item>
@@ -30,7 +30,7 @@
               Inicio de Sesión
           </a></ion-item>
           <ion-item>
-              <a href="">Mi Cuenta</a>
+              <a href=""><ion-icon name="people-outline"></ion-icon>Mi Cuenta</a>
           </ion-item>
         </ion-list>
       </ion-content>
@@ -56,19 +56,38 @@
           
           
         </ion-toolbar>-->
+        
+         
+        <ion-toolbar>
+          <ion-buttons slot="start">
+            <ion-menu-button></ion-menu-button>
+          </ion-buttons>
+          <ion-title> 
+            Mi primera tienda en linea
+          </ion-title> 
+        </ion-toolbar>
+        
+          
         <app-encabezado></app-encabezado>
        
       </ion-header>
 
       <ion-content class="ion-padding">
         <router-outlet></router-outlet>
-       </ion-content>
-   </div>
-<!--<ion-footer>
+    
+      </ion-content>
+
+      <ion-footer>
         <ion-toolbar>
-          <ion-title>Footer</ion-title>
+          <ion-title>Derechos reservados 2022</ion-title>
         </ion-toolbar>
-      </ion-footer>-->
+      </ion-footer>
+   </div>
+      
+      
+      
+
+      
      
       
   </ion-app>

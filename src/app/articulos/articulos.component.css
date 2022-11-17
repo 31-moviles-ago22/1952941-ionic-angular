@@ -12,3 +12,9 @@ ion-button {
 ion-col p{
     font-weight: bold;
 }
+
+
+
+p.strong{
+    font-family:Arial, Helvetica, sans-serif;
+}

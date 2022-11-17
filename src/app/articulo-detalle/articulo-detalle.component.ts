@@ -6,6 +6,13 @@ import { Observable } from 'rxjs';
 import { Articulo, ArticuloDetalle } from '../articulo.model';
 import { AngularFireStorage } from '@angular/fire/compat/storage';
 
+/*export interface articuloDetalle{
+  id: number;
+  nombre: string;
+  precio: number;
+  imagen: string; 
+}*/
+
 @Component({
   selector: 'app-articulo-detalle',
   templateUrl: './articulo-detalle.component.html',
