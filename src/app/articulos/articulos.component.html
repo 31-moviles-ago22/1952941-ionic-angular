@@ -6,16 +6,27 @@
     </ion-row>
 
     <!--articulos desde la base de firebase-->
+   <!--quitar
+    <ion-row>
+        <ion-col size="12" size-md="3" *ngFor="let articuloFirebase of articulosFirebase | async ">
+            {{articuloFirebase.nombre}} <br>
+    
+            {{articuloFirebase.precio}} <br>
+        </ion-col>
+    </ion-row>
+   -->
+    
+    
  <!--
     <div *ngFor="let articuloFirebase of articulosFirebase | async ">
         {{articuloFirebase.nombre}} <br>
 
         {{articuloFirebase.precio}} <br>
     </div>
- -->   
-
-
-    <!--articulos locales-->
+ -->
+    
+ 
+    <!--articulos locales--><!--esta es la original-->
     <ion-row>
         
         <ion-col size="12" size-md="3" *ngFor="let articulo of articulosFirebase | async">
@@ -25,7 +36,7 @@
             </ion-card-header>
            <ion-card-content>
             <a [routerLink]="['/detalle', articulo.id]">
-            <!--<img src="assets/imagenes/art1.jpg" alt="">-->    
+            <!--<img src="assets/imagenes/art1.jpg" alt="">--> 
             <ion-img [src]="articulo.imagen | getDownloadURL" alt="{{articulo.nombre}}"></ion-img>
             </a>
             <p class="precio">${{articulo.precio}}</p>
@@ -35,5 +46,6 @@
         </ion-col>
        
     </ion-row>
+    
    
 </ion-grid>

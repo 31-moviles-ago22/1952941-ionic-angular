@@ -4,7 +4,6 @@ import { AgregarCarritoService } from '../agregar-carrito.service';
 import { Observable, of } from 'rxjs'
 import { Articulo } from '../articulo.model';
 import { AngularFireStorage } from '@angular/fire/compat/storage';
-
 /*export interface Articulos{
   id: number;
   nombre: string;
@@ -28,12 +27,14 @@ export class ArticulosComponent implements OnInit {
     private aFirestore: AngularFirestore,
     private aFireStorage: AngularFireStorage
   ) { 
-    this.coleccionFirebase = this.aFirestore.collection<Articulo>('articulos');
+    this.coleccionFirebase = this.aFirestore.collection<Articulo>('Articulos');
     this.articulosFirebase = this.coleccionFirebase.valueChanges({idField: 'id'});
     /*this.articuloDoc = this.aFirestore.doc<Articulo>('/articulos/KyPraPRLoHbek3pEt0kk');*/
 
     const ref = this.aFireStorage.storage;
   }
+
+
 
   articulosColeccionFb: Articulo[] = [];
 
@@ -57,7 +58,7 @@ export class ArticulosComponent implements OnInit {
   cargarFotos(){
 
   }
-
+//
   porcentaje$ : Observable<number> | undefined;
   progress : number | undefined;
   subirFoto(event: any){
