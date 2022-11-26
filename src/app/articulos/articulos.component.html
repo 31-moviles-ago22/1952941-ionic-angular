@@ -31,14 +31,15 @@
         
         <ion-col size="12" size-md="3" *ngFor="let articulo of articulosFirebase | async">
             <ion-card>
-            <ion-card-header>
-                <p>{{articulo.nombre}}</p>
+            <ion-card-header >
+                <p class="nombre">{{articulo.nombre}}</p>
             </ion-card-header>
            <ion-card-content>
             <a [routerLink]="['/detalle', articulo.id]">
             <!--<img src="assets/imagenes/art1.jpg" alt="">--> 
-            <ion-img [src]="articulo.imagen | getDownloadURL" alt="{{articulo.nombre}}"></ion-img>
+            <ion-img [src]="articulo.imagen" alt="{{articulo.imagen}}"></ion-img>
             </a>
+            
             <p class="precio">${{articulo.precio}}</p>
             <ion-button (click)="agregarCarrito(articulo)">Agregar al Carrito</ion-button>
             </ion-card-content>        
@@ -49,3 +50,10 @@
     
    
 </ion-grid>
+
+<!--prueba de obtencion de datos
+    <div *ngFor="let articulo of getData">
+        {{articulo.nombre}}
+        {{articulo.precio}}
+    </div>-->
+

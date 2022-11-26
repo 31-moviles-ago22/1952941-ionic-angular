@@ -1,0 +1,24 @@
+<p class="color">admin works!</p>
+<form [formGroup]="form" (ngSubmit)="agregarData()">
+    <ion-item class="color">
+        <ion-label class="color">ID</ion-label>
+        <ion-input type="number" formControlName="id"></ion-input>
+    </ion-item>
+    <br/>
+
+    <ion-item class="color">
+        <ion-label class="color">Nombre</ion-label>
+        <ion-input type="text" formControlName="nombre"></ion-input>
+    </ion-item>
+    <br/>
+
+    <ion-item class="color">
+        <ion-label class="color">Precio</ion-label>
+        <ion-input type="number" formControlName="precio"></ion-input>
+    </ion-item>
+    <br/>
+    
+    
+
+    <button ion-button type="submit" (click)="createData()" class="color">Agregar</button>
+</form>

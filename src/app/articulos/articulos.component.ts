@@ -4,6 +4,8 @@ import { AgregarCarritoService } from '../agregar-carrito.service';
 import { Observable, of } from 'rxjs'
 import { Articulo } from '../articulo.model';
 import { AngularFireStorage } from '@angular/fire/compat/storage';
+import { Firestore } from '@angular/fire/firestore';
+import { FirestoreServiceService } from '../firestore-service.service';
 /*export interface Articulos{
   id: number;
   nombre: string;
@@ -18,11 +20,15 @@ import { AngularFireStorage } from '@angular/fire/compat/storage';
 })
 export class ArticulosComponent implements OnInit {
 
+getData:any=[];//para traer datos de la bd de firebase
+
   private coleccionFirebase: AngularFirestoreCollection<Articulo>;
   articulosFirebase: Observable<Articulo[]>;
   /*articuloDoc: any;*/
 
   constructor(
+    private fireService:FirestoreServiceService,
+    
     private carritoService : AgregarCarritoService,
     private aFirestore: AngularFirestore,
     private aFireStorage: AngularFireStorage
@@ -47,6 +53,10 @@ export class ArticulosComponent implements OnInit {
     this.articulosFirebase.subscribe(res => {
       
     })*/
+    this.fireService.getDate().subscribe((data:any)=>{
+      this.getData=data
+      console.log(this.getData)
+    })
 
   }
 

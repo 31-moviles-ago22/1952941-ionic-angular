@@ -5,10 +5,13 @@
         </ion-col>
     </ion-row>
     <ion-row>
-        <ion-col size="12" size-md="5">
+        <ion-col size="12" size-md="5" let articulo of getData>
             <ion-card>
                 <ion-card-content>
-                    <p>{{(articuloDetalle | async)?.nombre}}</p>
+                    <!--<p>{{articulo.nombre}}</p>este no
+                        <p class="nombre">{{(articulosFirebase | async)?.nombre}}</p>-->
+                    
+                        
                    <!--<img [src]="(articuloDetalle | async)?.img !| getDownloadURL" alt="{{(articuloDetalle | async)?.nombre }}">-->
                     
                     <!--<ion-img [src]="articuloDetalle.imagen"></ion-img>-->
@@ -18,28 +21,28 @@
             </ion-card>
         </ion-col>
         <ion-col size="12" offset-md="1" size-md="2">
-            <h2>Comprar {{(articuloDetalle | async)?.nombre}}</h2>
-            <p>${{(articuloDetalle | async)?.precio}}</p>
+            <h2 class="nombre">Comprar {{(articuloDetalle | async)?.nombre}}</h2>
+            <p class="nombre">${{(articuloDetalle | async)?.precio}}</p>
         </ion-col>
         <ion-col size="12" offset-md="1" size-md="2">
-            <p>Entrega <strong>GRATIS</strong> hoy </p>
+            <p>Entrega <strong class="nombre">GRATIS</strong> hoy </p>
             <ion-list>
                 <ion-item>
-                  <ion-select interface="popover" placeholder="cantidad" (ionChange)="seleccionarCantidad($event)">
+                  <ion-select interface="popover" placeholder="cantidad" (ionChange)="seleccionarCantidad($event)" class="nombre">
                     <ion-select-option value="1">1</ion-select-option>
                     <ion-select-option value="2">2</ion-select-option>
                     <ion-select-option value="3">3</ion-select-option>
                   </ion-select>
                 </ion-item>
               </ion-list>
-              <p>Vas a agregar<strong> {{cantidad}}</strong></p>
+              <p>Vas a agregar<strong class="nombre"> {{cantidad}}</strong></p>
             <ion-button (click)="agregarCarrito()">Agregar al carrito</ion-button>
             <ion-button>Comprar</ion-button>
         </ion-col>
     </ion-row>
     <ion-row>
         <ion-col>
-            <h2>Reviews</h2>
+            <h2 class="nombre">Reviews</h2>
             <!--<p class="review" *ngFor="let review of articuloDetalle.reviews">
                 {{review}}
             </p>-->

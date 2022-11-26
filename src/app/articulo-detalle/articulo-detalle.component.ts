@@ -1,10 +1,13 @@
 import { Component, OnInit, Output } from '@angular/core';
 import { ActivatedRoute, Event } from '@angular/router';
 
-import { AngularFirestore, AngularFirestoreDocument } from '@angular/fire/compat/firestore';
+import { AngularFirestore, AngularFirestoreDocument, AngularFirestoreCollection } from '@angular/fire/compat/firestore';
 import { Observable } from 'rxjs';
 import { Articulo, ArticuloDetalle } from '../articulo.model';
 import { AngularFireStorage } from '@angular/fire/compat/storage';
+
+import { FirestoreServiceService } from '../firestore-service.service';
+import { Firestore } from '@angular/fire/firestore';
 
 /*export interface articuloDetalle{
   id: number;
@@ -20,13 +23,24 @@ import { AngularFireStorage } from '@angular/fire/compat/storage';
 })
 export class ArticuloDetalleComponent implements OnInit {
 
+  getData:any=[];
+
+  private coleccionFirebase: AngularFirestoreCollection<Articulo>;
+  articulosFirebase: Observable<Articulo[]>;
+
+
   private articuloConsulta : AngularFirestoreDocument<ArticuloDetalle>;
   idArticulo: string;
   articuloDetalle: Observable<ArticuloDetalle|undefined>;
 
   meta : Observable<any>;
 
-  constructor(private ruta: ActivatedRoute,
+  constructor(
+    private fireService:FirestoreServiceService,
+    private aFirestore: AngularFirestore,
+    private aFireStorage: AngularFireStorage,
+
+    private ruta: ActivatedRoute,
     private af: AngularFirestore,
     private storage : AngularFireStorage
     ) {
@@ -39,15 +53,30 @@ export class ArticuloDetalleComponent implements OnInit {
       const ref = this.storage.ref('articulos');
       this.meta = ref.getMetadata();
 
+
+      this.coleccionFirebase = this.aFirestore.collection<Articulo>('Articulos');
+    this.articulosFirebase = this.coleccionFirebase.valueChanges({idField: 'id'});
+
+    
+
      }
 
+     articulosColeccionFb: Articulo[] = [];
+
   ngOnInit(): void {
-    this.articuloConsulta.valueChanges().subscribe(res => {
+    /*this.articuloConsulta.valueChanges().subscribe(res => {
       console.log(res);
     });
     //this.buscarArticulo();
 
-    console.log(this.meta)
+    console.log(this.meta)*/
+
+
+
+    this.fireService.getDate().subscribe((data:any)=>{
+      this.getData=data
+      console.log(this.getData)
+    })
   }
 
   

@@ -18,3 +18,10 @@ ion-col p{
 p.strong{
     font-family:Arial, Helvetica, sans-serif;
 }
+
+.precio{
+    color: black;
+}
+.nombre{
+    color: black;
+}

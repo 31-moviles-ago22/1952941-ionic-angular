@@ -14,3 +14,7 @@ ion-button {
     display: block;
     width: 100%;
 }
+
+.nombre{
+    color: black;
+}
