@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl,FormGroup,FormBuilder,Validators, Form } from '@angular/forms';
+import { FormControl,FormGroup,FormBuilder,Validators, Form, ReactiveFormsModule } from '@angular/forms';
 import { FirestoreServiceService } from '../firestore-service.service';
+import { Event } from '@angular/router';
+import { ReactNativeAsyncStorage } from 'firebase/auth';
+import { Target } from '@angular/compiler';
 
 @Component({
   selector: 'app-admin',
@@ -12,6 +15,8 @@ export class AdminComponent implements OnInit {
   id:any
   nombre:any
   precio:any
+
+  public archivos: any = []
   
  form: FormGroup;
  /* form=new FormGroup({
@@ -44,6 +49,12 @@ export class AdminComponent implements OnInit {
   createData(){
     this.agregarData()
     this.fireService.guardarDatos(this.id,this.nombre,this.precio)
+  }
+
+  capturarFile(event: any): any {
+    const archivoCapturado = event.target.files[0]
+    this.archivos.push(archivoCapturado)
+    console.log(event.target.files);
   }
 
 }

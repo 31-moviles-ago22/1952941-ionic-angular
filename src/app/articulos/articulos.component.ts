@@ -227,7 +227,7 @@ getData:any=[];//para traer datos de la bd de firebase
 
 
 
-  carro: number = 3;
+  carro: number = 0;
 
   @Input() articulo: any;
   @Output() agregarAcarrito =  new EventEmitter()

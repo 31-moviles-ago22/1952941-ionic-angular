@@ -5,14 +5,15 @@
         </ion-col>
     </ion-row>
     <ion-row>
-        <ion-col size="12" size-md="5" let articulo of getData>
+        <ion-col size="12" size-md="5" let articulo of articulosFirebase>
             <ion-card>
                 <ion-card-content>
                     <!--<p>{{articulo.nombre}}</p>este no
                         <p class="nombre">{{(articulosFirebase | async)?.nombre}}</p>-->
                     
-                        
-                   <!--<img [src]="(articuloDetalle | async)?.img !| getDownloadURL" alt="{{(articuloDetalle | async)?.nombre }}">-->
+                   <ion-img [src]="(articuloDetalle | async)?.imagen" alt="{{(articuloDetalle | async)?.imagen}}"></ion-img>
+                    <!--<img [src]="(articuloDetalle | async)?.imagen !| getDownloadURL" alt="{{(articuloDetalle | async)?.nombre }}"> original-->
+                   
                     
                     <!--<ion-img [src]="articuloDetalle.imagen"></ion-img>-->
                    
@@ -46,6 +47,7 @@
             <!--<p class="review" *ngFor="let review of articuloDetalle.reviews">
                 {{review}}
             </p>-->
+            <p class="nombre" *ngFor="let review of (articuloDetalle | async)?.review">{{review}}</p>
         </ion-col>
     </ion-row>
 </ion-grid>

@@ -3,10 +3,16 @@
 }
 .form-label{
     color:black;
+    padding-right: 5px;
 }
 .form-control{
     color:black;
+    
 }
 .boton{
     color:blue;
+}
+.campo{
+    padding: 20px;
+    padding-left: 20px;
 }

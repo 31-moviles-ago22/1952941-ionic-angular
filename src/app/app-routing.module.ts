@@ -9,10 +9,12 @@ import { RegisterComponent } from './register/register.component';
 import { AdminComponent } from './admin/admin.component';
 
 const routes: Routes = [
-  /*{
-    path: 'encabezado',
-    component: EncabezadoComponent
-  },*/
+  
+  {
+    path: '',
+    redirectTo: '/articulos', 
+    pathMatch: 'full'
+},
   {
     path: 'articulos', 
     component: ArticulosComponent
@@ -25,11 +27,7 @@ const routes: Routes = [
     path: 'detalle/:id',
     component: ArticuloDetalleComponent 
 },
-{
-    path: '',
-    redirectTo: '/articulos', 
-    pathMatch: 'full'
-},
+
 {
   path: 'register', 
   component: RegisterComponent

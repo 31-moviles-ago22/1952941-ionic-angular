@@ -13,7 +13,7 @@ export class EncabezadoComponent implements OnInit {
   }
 
   carro: number = 0;
-  cantidad: number=1;
+  cantidad: number=0;
   @Output() carroCopia: number = 0;
   
 

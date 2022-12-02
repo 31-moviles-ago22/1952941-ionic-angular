@@ -19,19 +19,17 @@
       <ion-content class="ion-padding"> <!--Contenido del Menu-->
         <ion-list>
           <ion-item> <a [routerLink]="['/articulos']">Articulos</a></ion-item>
-          <ion-item><a href="">Electrónicps</a></ion-item>
-          <ion-item><a href="">Deportes</a></ion-item>
-          <ion-item><a href="">Halloween</a></ion-item>
+          <ion-item><a href="">Celulares</a></ion-item>
+          <ion-item><a href="">Audifonos</a></ion-item>
+          <ion-item><a href="">Accesorios</a></ion-item>
           <ion-item><a [routerLink]="['/admin']">Administracion</a></ion-item>
-          <ion-item><a [routerLink]="['/register']">Registro de usuario</a></ion-item>
+          <ion-item><a [routerLink]="['/register']"><ion-icon name="people-outline"></ion-icon>Registro de usuario</a></ion-item>
           <ion-item><a [routerLink]="['/login']">
               <ion-icon name="log-in"></ion-icon>
               <ion-icon name="log-out"></ion-icon>
               Inicio de Sesión
           </a></ion-item>
-          <ion-item>
-              <a href=""><ion-icon name="people-outline"></ion-icon>Mi Cuenta</a>
-          </ion-item>
+          
         </ion-list>
       </ion-content>
   </ion-menu>
@@ -40,7 +38,7 @@
     
 
   <div class="ion-page" id="main-content">
-    <ion-header>
+    <ion-header class="color">
       <!--<ion-toolbar>
           <ion-buttons slot="start">
             <ion-menu-button></ion-menu-button>
@@ -58,17 +56,27 @@
         </ion-toolbar>-->
         
          
-        <ion-toolbar>
-          <ion-buttons slot="start">
-            <ion-menu-button></ion-menu-button>
-          </ion-buttons>
-          <ion-title> 
-            Mi primera tienda en linea
-          </ion-title> 
-        </ion-toolbar>
+          <ion-toolbar>
+            <div class="color">
+              <ion-buttons slot="start">
+                <ion-menu-button></ion-menu-button>
+              </ion-buttons>
+              <ion-title> 
+                Tienda de Richi
+              </ion-title> 
+              
+            </div>
+            
+          </ion-toolbar>
+         
+          <app-encabezado></app-encabezado>
+         
+          
         
           
-        <app-encabezado></app-encabezado>
+        
+          
+        
        
       </ion-header>
 
@@ -77,11 +85,24 @@
     
       </ion-content>
 
-      <ion-footer>
-        <ion-toolbar>
-          <ion-title>Derechos reservados 2022</ion-title>
-        </ion-toolbar>
-      </ion-footer>
+      
+
+      
+        <ion-footer>
+          
+          <ion-toolbar class="color">
+           
+              <ion-title>Derechos reservados 2022</ion-title>
+           
+              
+          </ion-toolbar>
+        
+       
+        </ion-footer>
+      
+        
+    
+      
    </div>
       
       
@@ -90,5 +111,5 @@
       
      
       
-  </ion-app>
+</ion-app>
 

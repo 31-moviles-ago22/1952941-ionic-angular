@@ -31,6 +31,10 @@ export class ArticuloDetalleComponent implements OnInit {
 
   private articuloConsulta : AngularFirestoreDocument<ArticuloDetalle>;
   idArticulo: string;
+  //pruebas-no-definitivo:
+  //nombreArticulo: string;
+  
+  //
   articuloDetalle: Observable<ArticuloDetalle|undefined>;
 
   meta : Observable<any>;
@@ -45,23 +49,29 @@ export class ArticuloDetalleComponent implements OnInit {
     private storage : AngularFireStorage
     ) {
       this.idArticulo =  this.ruta.snapshot.params['id'];
-      
-      this.articuloConsulta = this.af.doc<ArticuloDetalle>(`/articulos/${this.idArticulo}`); 
-
+      this.articuloConsulta = this.af.doc<ArticuloDetalle>(`/Articulos/${this.idArticulo}`); 
       this.articuloDetalle = this.articuloConsulta.valueChanges();
+
+      //pruebas-no-definitivo
+      //this.nombreArticulo =  this.ruta.snapshot.params['nombre'];
+      //this.articuloConsulta = this.af.doc<ArticuloDetalle>(`/Articulos/${this.nombreArticulo}`);
+      
+      //
 
       const ref = this.storage.ref('articulos');
       this.meta = ref.getMetadata();
 
 
       this.coleccionFirebase = this.aFirestore.collection<Articulo>('Articulos');
-    this.articulosFirebase = this.coleccionFirebase.valueChanges({idField: 'id'});
-
+      this.articulosFirebase = this.coleccionFirebase.valueChanges({idField: 'id'});
+      //pruebas-no-definitivo
+      //this.articulosFirebase = this.coleccionFirebase.valueChanges({nameField: 'nombre'});
+      //
     
 
      }
 
-     articulosColeccionFb: Articulo[] = [];
+     articulosColeccionFb: Articulo[]=[];
 
   ngOnInit(): void {
     /*this.articuloConsulta.valueChanges().subscribe(res => {

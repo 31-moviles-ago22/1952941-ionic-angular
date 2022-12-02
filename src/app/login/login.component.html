@@ -1,14 +1,17 @@
 <h2 class="color">Inicia sesion</h2>
 <form [formGroup]="formLogin" (ngSubmit)="onSubmit()">
-    <div class="mb-3">
+    <div class="campo">
         <label class="form-label">Email</label>
         <input type="text" class="form-control" formControlName="email">
     </div>
-    <div class="mb-3">
+    <div class="campo">
         <label class="form-label">Contraseña</label>
         <input type="password" class="form-control" formControlName="password">
     </div>
-    <input class="boton" type="submit" value="Iniciar">
+    <div class="campo">
+        <input class="boton" type="submit" value="Iniciar">
+    </div>
+    
 </form>
 
 

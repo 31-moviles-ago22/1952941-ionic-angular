@@ -1,4 +1,4 @@
-<p class="color">admin works!</p>
+<p class="color">Ingresa a continuación los datos del nuevo artículo:</p>
 <form [formGroup]="form" (ngSubmit)="agregarData()">
     <ion-item class="color">
         <ion-label class="color">ID</ion-label>
@@ -9,12 +9,18 @@
     <ion-item class="color">
         <ion-label class="color">Nombre</ion-label>
         <ion-input type="text" formControlName="nombre"></ion-input>
-    </ion-item>
+    </ion-item><!--formControlName-->
     <br/>
 
     <ion-item class="color">
         <ion-label class="color">Precio</ion-label>
         <ion-input type="number" formControlName="precio"></ion-input>
+    </ion-item>
+    <br/>
+
+    <ion-item class="color">
+        <ion-label class="color">Imagen</ion-label>
+        <ion-input (change)="capturarFile($event)" type="file" formControlName="precio"></ion-input>
     </ion-item>
     <br/>
     

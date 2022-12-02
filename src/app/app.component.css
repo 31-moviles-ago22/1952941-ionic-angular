@@ -16,6 +16,7 @@ ion-icon{
 
 ion-title{
     color: black;
+    text-align: center;
 }
 
 .footer{
@@ -29,6 +30,13 @@ ion-title{
 
 ion-menu-button{
     color: dark;
+}
+
+.color{
+    background-color:cornflowerblue;
+}
+ion-footer{
+    color: cornflowerblue;
 }
 
 

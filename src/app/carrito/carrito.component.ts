@@ -13,7 +13,7 @@ export class CarritoComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  @Input()carrito: number=1;
+  @Input()carrito: number=0;
   @Input() articulo: any;
 
   cantidadCarrito($event: number){
